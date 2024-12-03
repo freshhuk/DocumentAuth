@@ -32,7 +32,7 @@ public class MessageWrapperDeserializer extends JsonDeserializer<MessageWrapper<
             else if (payloadNode.has("login") && payloadNode.has("password")) {//  login model
                 payload = jp.getCodec().treeToValue(payloadNode, LoginModel.class);
             }
-            else if (payloadNode.has("login") && payloadNode.has("password") && payloadNode.has("confirmPassword")) {
+            else if (payloadNode.has("loginRegister") && payloadNode.has("password") && payloadNode.has("confirmPassword")) {
                 payload = jp.getCodec().treeToValue(payloadNode, RegisterModel.class);  // RegisterModel
             }else {
                 payload = jp.getCodec().treeToValue(payloadNode, Object.class); //Object

@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterModel {
-    @JsonProperty("login")
-    private String login;
+    @JsonProperty("loginRegister")
+    private String loginRegister;
     @JsonProperty("password")
     private String password;
     @JsonProperty("confirmPassword")
