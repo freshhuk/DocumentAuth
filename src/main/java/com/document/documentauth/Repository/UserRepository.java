@@ -34,7 +34,7 @@ public class UserRepository{
 
         try(Session session = factory.openSession()){
 
-            session.getTransaction();
+            session.beginTransaction();
 
             Query<User> query = session.createQuery("from User where login = :login", User.class);
             query.setParameter("login", login);

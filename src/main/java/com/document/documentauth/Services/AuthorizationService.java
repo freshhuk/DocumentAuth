@@ -33,8 +33,7 @@ public class AuthorizationService {
         try{
             if(registerModel != null && registerModel.getPassword().equals(registerModel.getConfirmPassword())){
 
-                Optional<User> user = repository.getUserByLogin(registerModel.getLoginRegister());
-                if(user.isEmpty()){
+                if(repository.existsByUsername(registerModel.getLoginRegister())){
                     String encodedPassword = passwordEncoder.encode(registerModel.getPassword());
 
                     User newUser = new User();

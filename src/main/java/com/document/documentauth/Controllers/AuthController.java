@@ -23,9 +23,6 @@ public class AuthController {
         if (message.getAction().equals(MessageAction.LOGIN.toString()) && message.getPayload() instanceof LoginModel) {
             messageService.login((LoginModel) message.getPayload());
         } else if (message.getAction().equals(MessageAction.REGISTER.toString()) && message.getPayload() instanceof RegisterModel) {
-            var test = (RegisterModel) message.getPayload();
-            System.out.println("^%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            System.out.println(test);
             messageService.registration((RegisterModel) message.getPayload());
         }
     }
