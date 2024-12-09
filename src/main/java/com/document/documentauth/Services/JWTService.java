@@ -3,7 +3,6 @@ package com.document.documentauth.Services;
 import com.document.documentauth.Domain.Entity.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -52,16 +51,5 @@ public class JWTService {
                 .setExpiration(new Date(System.currentTimeMillis() + 100000 * 60 * 24))  // Token expires in 24 hours
                 .signWith(key, SignatureAlgorithm.HS256)  // Sign the token using HS256 algorithm
                 .compact();
-    }
-
-
-    /**
-     * Get the signing key for token signing
-     *
-     * @return The signing key
-     */
-    private Key getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(JWTSIGNKEY);  // Decode the signing key from base64
-        return Keys.hmacShaKeyFor(keyBytes);  // Create a signing key for HS256 algorithm
     }
 }

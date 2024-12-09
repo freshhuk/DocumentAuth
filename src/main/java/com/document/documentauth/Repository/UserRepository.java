@@ -17,8 +17,6 @@ public class UserRepository{
             .addAnnotatedClass(User.class)
             .buildSessionFactory();
 
-    /* CRUD */
-
     public void add(User user){
 
         try(Session session = factory.openSession()){
